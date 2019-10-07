@@ -1,18 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.c                                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dnigella <dnigella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:46:30 by marvin            #+#    #+#             */
-/*   Updated: 2019/10/05 17:48:26 by dnigella         ###   ########.fr       */
+/*   Updated: 2019/10/07 13:56:09 by dnigella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		get_next_line(const int fd, char **line)
+static void		ft_write(char *buf, char *str)
 {
-	
+	int		i;
+
+	i = 0;
+	while (buf[i])
+	{
+		if (buf[i] == '\n')
+		{
+			str[i] = '\0';
+			break;
+		}
+		str[i] = buf[i];
+	}
+}
+
+int				get_next_line(const int fd, char **line)
+{
+	static int	k = 0;
+	int			ret;
+	char		buf[BUFF_SIZE];
+
+	ret = read(fd, buf, BUFF_SIZE - 1);
+	buf[ret] = '\0';
+	if (ret == 0)
+		return (0);
+	while (ret == read(fd, buf, BUFF_SIZE - 1))
+	{
+		buf[ret] = '\0';
+		ft_write(buf, line[k]);
+		line[k] = line[k] + ret;
+	}
+	k++;
 }
