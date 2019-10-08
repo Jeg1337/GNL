@@ -25,6 +25,7 @@ static void		ft_write(char *buf, char *str)
 			break;
 		}
 		str[i] = buf[i];
+		i++;
 	}
 }
 
@@ -34,6 +35,8 @@ int				get_next_line(const int fd, char **line)
 	int			ret;
 	char		buf[BUFF_SIZE];
 
+	if (!(line[k] = (char *)malloc(sizeof(char) * 12000)))
+		return (0);
 	ret = read(fd, buf, BUFF_SIZE - 1);
 	buf[ret] = '\0';
 	if (ret == 0)
@@ -45,4 +48,5 @@ int				get_next_line(const int fd, char **line)
 		line[k] = line[k] + ret;
 	}
 	k++;
+	return (1);
 }
