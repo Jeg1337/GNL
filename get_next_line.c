@@ -35,6 +35,8 @@ int				get_next_line(const int fd, char **line)
 	int			ret;
 	char		buf[BUFF_SIZE];
 
+	if (BUFF_SIZE < 1)
+		return (-1);
 	if (!(line[k] = (char *)malloc(sizeof(char) * 12000)))
 		return (0);
 	ret = read(fd, buf, BUFF_SIZE - 1);
