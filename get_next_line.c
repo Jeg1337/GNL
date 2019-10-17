@@ -6,7 +6,7 @@
 /*   By: dnigella <dnigella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:46:30 by marvin            #+#    #+#             */
-/*   Updated: 2019/10/07 13:56:09 by dnigella         ###   ########.fr       */
+/*   Updated: 2019/10/09 20:40:38 by dnigella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		ft_write(char *buf, char *str)
 		if (buf[i] == '\n')
 		{
 			str[i] = '\0';
-			break;
+			break ;
 		}
 		str[i] = buf[i];
 		i++;
