@@ -6,7 +6,7 @@
 /*   By: dnigella <dnigella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:46:30 by marvin            #+#    #+#             */
-/*   Updated: 2019/10/09 20:40:38 by dnigella         ###   ########.fr       */
+/*   Updated: 2019/10/21 17:22:16 by dnigella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static void		ft_write(char *buf, char *str)
 
 int				get_next_line(const int fd, char **line)
 {
-	static int	k = 0;
+	//static int	k = 0;
+	static char	qwe[BUFF_SIZE + 1];
 	int			ret;
 	char		buf[BUFF_SIZE];
 
