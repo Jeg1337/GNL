@@ -6,7 +6,7 @@
 /*   By: dnigella <dnigella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 17:22:02 by dnigella          #+#    #+#             */
-/*   Updated: 2019/10/21 19:11:11 by dnigella         ###   ########.fr       */
+/*   Updated: 2019/10/21 19:39:55 by dnigella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ static void			ft_qwe(char *buf, char **qwe, char **line)
 			break ;
 		i++;
 	}
-	if (buf[i] == '\n')
+	if (buf[i] == '\n' || buf[i] == '\0')
 	{
 		ft_strlcat(line, buf, i);
 		line[i] = '\0';
-		ft_asd(buf, ++i, &qwe);
+		if (buf[i] == '\n')
+			ft_asd(buf, ++i, &qwe);
 	}
 }
 
